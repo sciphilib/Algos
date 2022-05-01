@@ -64,15 +64,40 @@ ArrayLists::List::Node::~Node() {
 
 //------------------------------ArrayList--------------------------------------//
 
+ArrayLists::ArrayLists(const ArrayLists &arrayList) {
+    List::Node *node;
+    for (int i = 0; i < 26; ++i)
+    {
+        if (arrayList.letters[i])
+        {
+            List *list = new List();
+            node = arrayList.letters[i]->head;
+
+            while (node)
+            {
+                list->add(node->firstname, node->secondname);
+                node = node->next;
+            }
+            letters[i] = list;
+        }
+        else
+            letters[i] = nullptr;
+    }
+}
+
+
+ArrayLists::ArrayLists(const std::string &fn, const std::string &sn) {
+    add(fn, sn);
+}
+
 ArrayLists::english_letters convertFromCharToEnum(char letter);
 
 void ArrayLists::add(const std::string &fn, const std::string &sn) {
     auto letter = convertFromCharToEnum(static_cast<char>(std::toupper(static_cast<unsigned char>(sn[0]))));
-//    auto letter = ArrayLists::english_letters::Y;
 
     if (letters[letter] == nullptr)
     {
-        auto *list = new ArrayLists::List();
+        auto *list = new List();
         letters[letter] = list;
     }
     letters[letter]->add(fn, sn);
@@ -94,6 +119,32 @@ void ArrayLists::print() const {
             letters[i]->print();
         std::cout << '\n';
     }
+}
+
+ArrayLists &ArrayLists::operator=(const ArrayLists &arrayList)
+{
+    if (this == &arrayList)
+        return *this;
+
+    List::Node *node;
+    for (int i = 0; i < 26; ++i)
+    {
+        if (arrayList.letters[i])
+        {
+            delete letters[i];
+            List *list = new List();
+            node = arrayList.letters[i]->head;
+
+            while (node)
+            {
+                list->add(node->firstname, node->secondname);
+                node = node->next;
+            }
+            letters[i] = list;
+        }
+    }
+
+    return *this;
 }
 
 

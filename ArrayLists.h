@@ -14,6 +14,7 @@ public:
     enum english_letters {
         A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, ALL
     };
+private:
     struct List {
         struct Node {
             Node *next;
@@ -30,10 +31,13 @@ public:
         ~List();
     };
 private:
-    List* letters[26]; // an array for all english letters
+    List* letters[26]{}; // an array for all english letters
 public:
     ArrayLists() = default;
+    ArrayLists(const ArrayLists &arrayList);
+    ArrayLists(const std::string &fn, const std::string &sn);
     ~ArrayLists();
+    ArrayLists& operator=(const ArrayLists &arrayList);
     void add(const std::string &fn, const std::string &sn);
     void print() const;
 };
