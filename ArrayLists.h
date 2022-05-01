@@ -20,22 +20,17 @@ private:
             Node *next;
             std::string firstname;
             std::string secondname;
-            Node();
-            ~Node();
         };
         Node *head;
         Node *tail;
         void add(const std::string &fn, const std::string &sn);
         void print() const;
-        List();
         ~List();
     };
-private:
     List* letters[26]{}; // an array for all english letters
 public:
     ArrayLists() = default;
     ArrayLists(const ArrayLists &arrayList);
-    ArrayLists(const std::string &fn, const std::string &sn);
     ~ArrayLists();
     ArrayLists& operator=(const ArrayLists &arrayList);
     void add(const std::string &fn, const std::string &sn);

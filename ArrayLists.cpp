@@ -7,9 +7,6 @@
 
 //------------------------------List--------------------------------------//
 
-ArrayLists::List::List() :
-    head(nullptr), tail(nullptr) { std::cout << "list was created.\n"; }
-
 ArrayLists::List::~List() {
     Node *tmp;
     while (head != nullptr)
@@ -18,7 +15,6 @@ ArrayLists::List::~List() {
         head = head->next;
         delete tmp;
     }
-    std::cout << "list was deleted.\n";
 }
 
 void ArrayLists::List::add(const std::string &fn, const std::string &sn) {
@@ -53,16 +49,7 @@ void ArrayLists::List::print() const {
     }
 }
 
-//------------------------------Node--------------------------------------//
-
-ArrayLists::List::Node::Node() :
-    next(nullptr) { std::cout << "node was created.\n"; }
-
-ArrayLists::List::Node::~Node() {
-    std::cout << "node was deleted.\n";
-}
-
-//------------------------------ArrayList--------------------------------------//
+//------------------------------ArrayLists--------------------------------------//
 
 ArrayLists::ArrayLists(const ArrayLists &arrayList) {
     List::Node *node;
@@ -83,11 +70,6 @@ ArrayLists::ArrayLists(const ArrayLists &arrayList) {
         else
             letters[i] = nullptr;
     }
-}
-
-
-ArrayLists::ArrayLists(const std::string &fn, const std::string &sn) {
-    add(fn, sn);
 }
 
 ArrayLists::english_letters convertFromCharToEnum(char letter);
