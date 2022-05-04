@@ -2,6 +2,9 @@
 // Created by sciphilib on 4/30/2022.
 //
 
+// Time Complexity: O(n) (for the Sum of n Elements problem)
+// Space Complexity: O(n)
+
 #include <iostream>
 #include <random>
 

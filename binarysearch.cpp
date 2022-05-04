@@ -2,11 +2,11 @@
 // Created by sciphilib on 4/30/2022.
 //
 
+// Time complexity: O(log n)
+
 #include <iostream>
-#include <string>
 #include <algorithm>
 #include <random>
-#include <sstream>
 
 using namespace std;
 
