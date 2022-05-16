@@ -1,2 +1,2 @@
 # Algo
-Implementation of important algorithms and data structures in C++
+Implementation of important algorithms in C++
